@@ -1,4 +1,4 @@
-""" Generated with stubgen from mypy, then manually edited, do not regen."""
+"""Generated with stubgen from mypy, then manually edited, do not regen."""
 
 from reflex import constants as constants
 from reflex.base import Base as Base
@@ -47,6 +47,7 @@ class DBConfig(Base):
 class Config(Base):
     class Config:
         validate_assignment: bool
+
     app_name: str
     loglevel: constants.LogLevel
     frontend_port: int
@@ -97,7 +98,7 @@ class Config(Base):
         cp_web_url: Optional[str] = None,
         username: Optional[str] = None,
         gunicorn_worker_class: Optional[str] = None,
-        **kwargs
+        **kwargs,
     ) -> None: ...
     @property
     def module(self) -> str: ...

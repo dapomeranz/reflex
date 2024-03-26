@@ -1,4 +1,5 @@
 """A code component."""
+
 import re
 from typing import Dict, Literal, Optional, Union
 

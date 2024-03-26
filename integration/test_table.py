@@ -1,4 +1,5 @@
 """Integration tests for table and related components."""
+
 from typing import Generator
 
 import pytest
@@ -79,7 +80,11 @@ def Table():
                         ),
                     ),
                     rx.chakra.tfoot(  # type: ignore
-                        rx.chakra.tr(rx.chakra.td("footer1"), rx.chakra.td("footer2"), rx.chakra.td("footer3"))  # type: ignore
+                        rx.chakra.tr(
+                            rx.chakra.td("footer1"),
+                            rx.chakra.td("footer2"),
+                            rx.chakra.td("footer3"),
+                        )  # type: ignore
                     ),
                     rx.chakra.table_caption("random caption"),
                     variant="striped",

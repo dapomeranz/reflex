@@ -149,9 +149,9 @@ class App(Base):
     html_custom_attrs: Optional[Dict[str, str]] = None
 
     # A component that is present on every page.
-    overlay_component: Optional[
-        Union[Component, ComponentCallable]
-    ] = default_overlay_component
+    overlay_component: Optional[Union[Component, ComponentCallable]] = (
+        default_overlay_component
+    )
 
     # Background tasks that are currently running
     background_tasks: Set[asyncio.Task] = set()
@@ -357,11 +357,17 @@ class App(Base):
         for middleware in self.middleware:
             if asyncio.iscoroutinefunction(middleware.postprocess):
                 out = await middleware.postprocess(
-                    app=self, state=state, event=event, update=update  # type: ignore
+                    app=self,
+                    state=state,
+                    event=event,
+                    update=update,  # type: ignore
                 )
             else:
                 out = middleware.postprocess(
-                    app=self, state=state, event=event, update=update  # type: ignore
+                    app=self,
+                    state=state,
+                    event=event,
+                    update=update,  # type: ignore
                 )
             if out is not None:
                 return out  # type: ignore

@@ -135,7 +135,9 @@ def new_process(args, run: bool = False, show_logs: bool = False, **kwargs):
     # Add the node bin path to the PATH environment variable.
     env = {
         **os.environ,
-        "PATH": os.pathsep.join([node_bin_path if node_bin_path else "", os.environ["PATH"]]),  # type: ignore
+        "PATH": os.pathsep.join(
+            [node_bin_path if node_bin_path else "", os.environ["PATH"]]
+        ),  # type: ignore
         **kwargs.pop("env", {}),
     }
     kwargs = {
@@ -153,7 +155,7 @@ def new_process(args, run: bool = False, show_logs: bool = False, **kwargs):
 
 @contextlib.contextmanager
 def run_concurrently_context(
-    *fns: Union[Callable, Tuple]
+    *fns: Union[Callable, Tuple],
 ) -> Generator[list[futures.Future], None, None]:
     """Run functions concurrently in a thread pool.
 
