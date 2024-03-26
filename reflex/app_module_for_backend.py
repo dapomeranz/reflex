@@ -1,13 +1,14 @@
 """Shims the real reflex app module for running backend server (uvicorn or gunicorn).
 Only the app attribute is explicitly exposed.
 """
+
 from concurrent.futures import ThreadPoolExecutor
 
 from reflex import constants
 from reflex.utils.exec import is_prod_mode
 from reflex.utils.prerequisites import get_app
 
-if "app" != constants.CompileVars.APP:
+if constants.CompileVars.APP != "app":
     raise AssertionError("unexpected variable name for 'app'")
 
 app_module = get_app(reload=False)

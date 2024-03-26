@@ -1,4 +1,5 @@
 """Create a list of components from an iterable."""
+
 from __future__ import annotations
 
 from typing import Any, Dict, Optional, overload
@@ -113,18 +114,15 @@ class Cond(MemoizationLeaf):
 
 
 @overload
-def cond(condition: Any, c1: Component, c2: Any) -> Component:
-    ...
+def cond(condition: Any, c1: Component, c2: Any) -> Component: ...
 
 
 @overload
-def cond(condition: Any, c1: Component) -> Component:
-    ...
+def cond(condition: Any, c1: Component) -> Component: ...
 
 
 @overload
-def cond(condition: Any, c1: Any, c2: Any) -> Var:
-    ...
+def cond(condition: Any, c1: Any, c2: Any) -> Var: ...
 
 
 def cond(condition: Any, c1: Any, c2: Any = None):
@@ -172,7 +170,7 @@ def cond(condition: Any, c1: Any, c2: Any = None):
     def create_var(cond_part):
         return Var.create_safe(
             cond_part,
-            _var_is_string=type(cond_part) is str or isinstance(cond_part, Color),
+            _var_is_string=isinstance(cond_part, (str, Color)),
         )
 
     # convert the truth and false cond parts into vars so the _var_data can be obtained.

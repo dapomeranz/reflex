@@ -1,4 +1,5 @@
 """Interactive components provided by @radix-ui/themes."""
+
 from __future__ import annotations
 
 from typing import Any, Dict, List, Literal, Optional, Union
@@ -146,7 +147,7 @@ class HighLevelRadioGroup(RadixThemesComponent):
         # convert only non-strings to json(JSON.stringify) so quotes are not rendered
         # for string literal types.
         if (
-            type(default_value) is str
+            isinstance(default_value, str)
             or isinstance(default_value, Var)
             and default_value._var_type is str
         ):
