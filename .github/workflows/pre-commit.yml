@@ -18,7 +18,7 @@ jobs:
       - uses: ./.github/actions/setup_build_env
         with:
           # running vs. one version of Python is OK
-          # i.e. ruff, black, etc.
+          # i.e. ruff, pyright, etc.
           python-version: 3.11.5
           run-poetry-install: true
           create-venv-at-path: .venv

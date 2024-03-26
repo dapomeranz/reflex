@@ -76,17 +76,13 @@ Next make sure all the following tests pass. This ensures that every new change 
 
 ``` bash
 poetry run ruff check .
+poetry run ruff format .
 poetry run pyright reflex tests
-find reflex tests -name "*.py" -not -path reflex/reflex.py | xargs poetry run darglint
+find reflex tests -name "*.py" -not -path reflex/reflex.py
 ```
 
-Finally, run `black` to format your code.
 
-``` bash
-poetry run black reflex tests
-```
-
-Consider installing git pre-commit hooks so Ruff, Pyright, Darglint and Black will run automatically before each commit.
+Consider installing git pre-commit hooks so Ruff and Pyright will run automatically before each commit.
 Note that pre-commit will only be installed when you use a Python version >= 3.8.
 
 ``` bash

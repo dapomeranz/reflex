@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
     # We don't just trigger on pyi_generator.py and the components dir, because
     # there are other things that can change the generator output
-    # e.g. black version, reflex.Component, reflex.Var.
+    # e.g. ruff version, reflex.Component, reflex.Var.
     paths-ignore:
       - '**/*.md'
   pull_request:
