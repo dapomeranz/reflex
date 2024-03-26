@@ -78,7 +78,7 @@ Next make sure all the following tests pass. This ensures that every new change 
 poetry run ruff check .
 poetry run ruff format .
 poetry run pyright reflex tests
-find reflex tests -name "*.py" -not -path reflex/reflex.py
+find reflex tests -name "*.py" -not -path reflex/reflex.py | xargs poetry run darglint
 ```
 
 

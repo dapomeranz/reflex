@@ -15,6 +15,12 @@ repos:
         args: [integration, reflex, tests]
         language: system
 
+  - repo: https://github.com/terrencepreilly/darglint
+    rev: v1.8.1
+    hooks:
+      - id: darglint
+        exclude: '^reflex/reflex.py'
+
   - repo: local
     hooks:
       - id: update-pyi-files
